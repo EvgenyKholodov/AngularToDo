@@ -1,0 +1,11 @@
+<div class="task" *ngFor="let task of tasks">
+  <!--<input id="{{task.id}}}" type="checkbox" (click)="data.changeCondition(task)">-->
+  <label class="container">
+    <input id="{{task.id}}}" (click)="data.changeCondition(task)" type="checkbox" checkbox="!!task.isReady" [checked]="data.isCheckAll">
+    <span class="checkmark"></span>
+  </label>
+  <p *ngIf="!task.edit" [class.ready]="task.isReady" (dblclick)="data.edit($event,task)">{{task.name}}</p>
+  <input class="edit" type="text" *ngIf="task.edit"    [(ngModel)]="task.name" (keydown)="data.changeTask($event,task)" (blur)="data.closeEdit(task)" appAutoFocus>
+  <button (click)="data.removeItem(task.id)">x</button>
+</div>
+

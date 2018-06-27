@@ -1,0 +1,11 @@
+<p *ngIf="data.error" class="error">{{data.error}}</p>
+<div class="wrapper">
+  <div class="add-task">
+    <input type="checkbox" name="select-all" id="select-all" [(ngModel)]="data.isCheckAll" (change)="data.checkAll()">
+    <app-input-line [model]="currentTask" [key]="addTask" [placeHolder]="placeHolder"></app-input-line>
+    <!--<input [(ngModel)]="data.currentTask" id="add-task" type="text" (keydown)="data.addTask($event)"-->
+           <!--placeholder="Add new task ...">-->
+  </div>
+  <app-task></app-task>
+</div>
+
